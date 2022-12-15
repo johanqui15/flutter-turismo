@@ -4,6 +4,8 @@ import 'package:prue/pages/login_pages/view_model/conect_login.dart';
 import 'package:prue/pages/login_pages/view_model/conection_logo.dart';
 import 'package:prue/utilities/colors.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:geolocator/geolocator.dart';
+import 'package:geocoding/geocoding.dart';
 
 class LoginPage extends StatefulWidget {
   LoginPage({Key? key}) : super(key: key);
@@ -22,6 +24,54 @@ class _LoginPageState extends State<LoginPage> {
     email.dispose();
     password.dispose();
     super.dispose();
+  }
+
+  String location = 'Null, Press Button';
+  // ignore: non_constant_identifier_names
+  String Address = 'search';
+  Future<Position> _getGeoLocationPosition() async {
+    bool serviceEnabled;
+    LocationPermission permission;
+    // Test if location services are enabled.
+    serviceEnabled = await Geolocator.isLocationServiceEnabled();
+    if (!serviceEnabled) {
+      // Location services are not enabled don't continue
+      // accessing the position and request users of the
+      // App to enable the location services.
+      await Geolocator.openLocationSettings();
+      return Future.error('Location services are disabled.');
+    }
+    permission = await Geolocator.checkPermission();
+    if (permission == LocationPermission.denied) {
+      permission = await Geolocator.requestPermission();
+      if (permission == LocationPermission.denied) {
+        // Permissions are denied, next time you could try
+        // requesting permissions again (this is also where
+        // Android's shouldShowRequestPermissionRationale
+        // returned true. According to Android guidelines
+        // your App should show an explanatory UI now.
+        return Future.error('Location permissions are denied');
+      }
+    }
+    if (permission == LocationPermission.deniedForever) {
+      // Permissions are denied forever, handle appropriately.
+      return Future.error(
+          'Location permissions are permanently denied, we cannot request permissions.');
+    }
+    // When we reach here, permissions are granted and we can
+    // continue accessing the position of the device.
+    return await Geolocator.getCurrentPosition(
+        desiredAccuracy: LocationAccuracy.high);
+  }
+
+  Future<void> GetAddressFromLatLong(Position position) async {
+    List<Placemark> placemarks =
+        await placemarkFromCoordinates(position.latitude, position.longitude);
+    print(placemarks);
+    Placemark place = placemarks[0];
+    Address =
+        '${place.street}, ${place.subLocality}, ${place.locality}, ${place.postalCode}, ${place.country}';
+    setState(() {});
   }
 
   @override
@@ -181,7 +231,7 @@ class _LoginPageState extends State<LoginPage> {
         //Navigator.pushNamed(context, 'recover_password');
         // final Uri uri = Uri.parse('https://destinofusagasuga.gov.co/forgot-password');
         final Uri uri =
-            Uri.parse('https://destinofusagasuga.gov.co/forgot-password');
+            Uri.parse('https://api.destinofusagasuga.gov.co/forgot-password');
         if (await canLaunchUrl(uri)) {
           await launchUrl(uri);
         }
@@ -211,9 +261,13 @@ class _LoginPageState extends State<LoginPage> {
             minimumSize: MaterialStateProperty.all(const Size(180, 50)),
             fixedSize: MaterialStateProperty.all(const Size(100, 36)),
             overlayColor: MaterialStateProperty.all(Colors.blueAccent)),
-        onPressed: () {
+        onPressed: () async {
           if (email.text != '' && password.text != '') {
             ConectionLogin().startLogin(email.text, password.text, context);
+            Position position = await _getGeoLocationPosition();
+            location =
+                'Lat: ${position.latitude} , Long: ${position.longitude}';
+            GetAddressFromLatLong(position);
           }
         },
       ),
