@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "939391785704",
+    "project_id": "destino-fusagasuga",
+    "storage_bucket": "destino-fusagasuga.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:939391785704:android:93fe4bc5d0fac428a2875d",
+        "android_client_info": {
+          "package_name": "com.example.prue"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "939391785704-lettbrfviiab7uim9048tnm9af8rmkbj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBxoAjKSC_MGwGR9ScoGZpeerEs8dHu3d8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "939391785704-lettbrfviiab7uim9048tnm9af8rmkbj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
