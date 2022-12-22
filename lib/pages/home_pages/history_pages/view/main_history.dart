@@ -78,7 +78,7 @@ class _MainHistoryState extends State<MainHistory> {
               DelayedDisplay(
                 delay: Duration(milliseconds: 1300),
                 child: cardSimbolos(
-                    context, 'assets/history/btn_simbolos.png', height, widht),
+                    context, 'assets/SÍMBOLOS-25.png', height, widht),
               ),
               DelayedDisplay(
                 delay: Duration(milliseconds: 1700),

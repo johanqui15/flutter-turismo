@@ -38,7 +38,7 @@ class _MainTourismState extends State<MainTourism> {
           context),
       ItemsTourismMain('assets/SERVICIOS TURISTICOS/4. GLAMPING-16.png',
           'senderismo_page', height, widht, 4, 'Glamping y Camping', context),
-      ItemsTourismMain('assets/SERVICIOS TURISTICOS/5. PARQUE TEMÁTICOS-16.png',
+      ItemsTourismMain('assets/5. PARQUE TEMÁTICOS-16-14.png',
           'senderismo_page', height, widht, 5, 'Parques tematicos', context),
       ItemsTourismMain(
           'assets/SERVICIOS TURISTICOS/6. AGENCIAS DE VIAJE-16.png',
@@ -82,7 +82,7 @@ class _MainTourismState extends State<MainTourism> {
                   child: ButtonBack(widht, context),
                 ),
                 Spacer(),
-                Text('Servicios Turisticos',
+                Text('Servicios Turísticos',
                     style: TextStyle(
                         fontSize: height * 0.030,
                         fontWeight: FontWeight.w500,

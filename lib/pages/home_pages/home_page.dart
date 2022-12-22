@@ -95,7 +95,7 @@ class _HomePageState extends State<HomePage> {
                         if (asyncSnapshot.hasData) {
                           return Column(
                             children: [
-                              Text('Temperatura en fusagasugá',
+                              Text('Temperatura en Fusagasugá',
                                   style: TextStyle(
                                       color: Colors.white, fontSize: 14)),
                               Text('${asyncSnapshot.data!}°C',
@@ -131,8 +131,8 @@ class _HomePageState extends State<HomePage> {
                           cardHistory(context),
                           cardCoffee(context),
                           cardServicios(context),
-                          cardHamburguesa(context),
-                          // cardMasFusa(context),
+                          // cardHamburguesa(context),
+                          cardMasFusa(context),
 
                           SizedBox(
                             height: 1,
@@ -303,31 +303,7 @@ Widget cardServicios(BuildContext context) {
       ));
 }
 
-Widget cardHamburguesa(BuildContext context) {
-  return Card(
-      color: Colors.white,
-      elevation: 14,
-      shadowColor: Color.fromARGB(163, 230, 212, 16),
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(13)),
-      child: InkWell(
-        child: Container(
-          child: Image(
-            image: AssetImage('assets/logo burger-20.png'),
-            width: 585,
-            height: 130,
-          ),
-          //Text(
-          //  'Turismo',
-          //  style: TextStyle(fontWeight: FontWeight.bold),
-          //),
-        ),
-        onTap: () {
-          Navigator.pushNamed(context, 'Hamburguesa_page');
-        },
-      ));
-}
-
-// Widget cardMasFusa(BuildContext context) {
+// Widget cardHamburguesa(BuildContext context) {
 //   return Card(
 //       color: Colors.white,
 //       elevation: 14,
@@ -336,7 +312,7 @@ Widget cardHamburguesa(BuildContext context) {
 //       child: InkWell(
 //         child: Container(
 //           child: Image(
-//             image: AssetImage('assets/+fusa/+FUSAGASUGA-11.png'),
+//             image: AssetImage('assets/logo burger-20.png'),
 //             width: 585,
 //             height: 130,
 //           ),
@@ -346,10 +322,34 @@ Widget cardHamburguesa(BuildContext context) {
 //           //),
 //         ),
 //         onTap: () {
-//           Navigator.pushNamed(context, 'MasFusa_page');
+//           Navigator.pushNamed(context, 'Hamburguesa_page');
 //         },
 //       ));
 // }
+
+Widget cardMasFusa(BuildContext context) {
+  return Card(
+      color: Colors.white,
+      elevation: 14,
+      shadowColor: Color.fromARGB(163, 230, 212, 16),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(13)),
+      child: InkWell(
+        child: Container(
+          child: Image(
+            image: AssetImage('assets/+fusa/+FUSAGASUGA-11.png'),
+            width: 585,
+            height: 130,
+          ),
+          //Text(
+          //  'Turismo',
+          //  style: TextStyle(fontWeight: FontWeight.bold),
+          //),
+        ),
+        onTap: () {
+          Navigator.pushNamed(context, 'MasFusa_page');
+        },
+      ));
+}
 
 launchURL1(String url) async {
   // ignore: deprecated_member_use

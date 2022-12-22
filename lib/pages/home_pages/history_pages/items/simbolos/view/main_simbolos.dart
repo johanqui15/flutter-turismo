@@ -48,7 +48,7 @@ class _MainSimbolosState extends State<MainSimbolos> {
                       child: ButtonBack(width, context),
                     ),
                     Text(
-                      'Simbolos Fusagasugueños',
+                      'Símbolos',
                       style: TextStyle(
                           fontSize: height * 0.030,
                           fontWeight: FontWeight.w500,

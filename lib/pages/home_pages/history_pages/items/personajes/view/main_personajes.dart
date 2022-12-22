@@ -49,7 +49,7 @@ class _MainPersonajesState extends State<MainPersonajes> {
                     ),
                     Spacer(),
                     Text(
-                      'Personajes Historicos',
+                      'Personajes de la Historia',
                       style: TextStyle(
                           fontSize: height * 0.030,
                           fontWeight: FontWeight.w500,

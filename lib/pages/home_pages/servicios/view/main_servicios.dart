@@ -72,7 +72,7 @@ class _MainServicePageState extends State<MainServicePage> {
                       text: 'Finanzas',
                     ),
                     Tab(
-                      text: 'Oficinas publicas',
+                      text: 'Oficinas Públicas',
                     ),
                     Tab(
                       text: 'Transporte',

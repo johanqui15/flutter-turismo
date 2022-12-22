@@ -67,10 +67,10 @@ class _MainRestaurantPageState extends State<MainRestaurantPage> {
                   text: 'Todos',
                 ),
                 Tab(
-                  text: 'Comida tipica',
+                  text: 'Comida Típica',
                 ),
                 Tab(
-                  text: 'Comida rapida',
+                  text: 'Comida Rápida',
                 ),
               ]),
             ),
@@ -294,7 +294,7 @@ List<Widget> CardAll(List<RestaurantStruct> data, BuildContext context,
                                                   RestaurantArguments(
                                                       element.idRes)))));
                             },
-                            child: Text('Ver informacion')),
+                            child: Text('Ver información')),
                         // Row(
                         //   children: [
                         //     Column(
